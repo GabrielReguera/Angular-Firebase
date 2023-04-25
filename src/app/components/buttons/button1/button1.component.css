@@ -1,0 +1,55 @@
+.div-btn {
+    position: relative;
+    height: 2rem;
+    display: inline-block;
+    background-color: #fff;
+}
+
+.div-btn::before,
+.div-btn::after {
+    content: '';
+    display: block;
+    background-color: #fff;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    transition: all .15s ease;
+}
+
+.div-btn:before {
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(-45deg) scale(0);
+}
+
+.div-btn:after {
+    right: 0;
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotate(45deg) scale(0);
+}
+
+.btn {
+    width: 100%;
+    height: 100%;
+    padding-inline: .8rem;
+    display: block;
+    transform: translate(0, 0);
+    transition: all .15s ease;
+    position: relative;
+    background-color: #494949;
+    z-index: 10;
+}
+
+.div-btn:hover .btn {
+    transform: translate(6px, -6px);
+}
+
+.div-btn:hover:before {
+    transform: rotate(-45deg) scale(1);
+}
+
+.div-btn:hover:after {
+    transform: rotate(45deg) scale(1);
+}

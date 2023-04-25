@@ -1,0 +1,6 @@
+<div class="container">
+    <h2>Animes</h2>
+    <div class="list-cards">
+        <app-card-anime *ngFor="let anime of animes$ | async" [anime]="anime"></app-card-anime>
+    </div>
+</div>

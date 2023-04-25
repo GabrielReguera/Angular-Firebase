@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+input{
+    height: 2rem;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    padding-inline: 1rem;
+}
+
+input:focus-visible, input:focus{
+    border: none;
+    outline: 2px solid rgb(0, 44, 110);
+}
+
+.btn-common{
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 2px solid black;
+    transition: all 200ms;
+}
+
+.btn-common:hover{
+    background-color: black;
+    color: white;
+}

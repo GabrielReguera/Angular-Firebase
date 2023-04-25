@@ -1,0 +1,20 @@
+<div class="container" [formGroup]="form">
+    <h2>Adicionar Um Anime</h2>
+    <div class="input">
+        <label>Name</label>
+        <input formControlName="name" type="text">
+    </div>
+    <div class="input">
+        <label>Banner</label>
+        <input formControlName="img" type="text">
+    </div>
+    <div class="input">
+        <label>Temporada</label>
+        <input formControlName="temporada" type="number">
+    </div>
+    <div class="input">
+        <label>Qtd. Episódios</label>
+        <input formControlName="eps" type="number">
+    </div>
+    <button class="btn-common" (click)="addAnime()">Salvar</button>
+</div>
