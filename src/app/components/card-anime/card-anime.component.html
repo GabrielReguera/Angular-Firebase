@@ -1,4 +1,17 @@
-<main>
+<main [routerLink]="['/info-anime', anime.id]">
     <img [src]="anime.img" alt="">
-
+    <div class="info">
+        <h3>{{anime.name}}</h3>
+        <div class="fotter-info">
+            <div>
+                <p>temp</p>
+                <p>{{anime.temporada}}</p>
+            </div>
+            <hr class="solid">
+            <div>
+                <p>ep's</p>
+                <p>{{anime.eps}}</p>
+            </div>
+        </div>
+    </div>
 </main>

@@ -15,7 +15,7 @@ const routes: Routes = [
           .then(a => a.AddAnimeComponent)
       },
       {
-        path: 'info-anime:idAnime', loadComponent: () => import('./components/info-anime/info-anime.component')
+        path: 'info-anime/:idAnime', loadComponent: () => import('./components/info-anime/info-anime.component')
           .then(i => i.InfoAnimeComponent)
       }
     ]

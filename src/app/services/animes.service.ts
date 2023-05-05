@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData, collectionGroup } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, collectionGroup, getDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Anime } from '../model/anime';
 import { doc } from '@angular/fire/firestore';
@@ -21,8 +21,18 @@ export class AnimesService {
     return addDoc(animeRef, anime)
   }
 
-  getAnime(id: string): Observable<Anime[]> {
-    const animeRef = collection(this.firebase, 'animes');
-    return collectionData(animeRef, { idField: id }) as Observable<Anime[]>
+  getAnime(id: string): Observable<Anime> {
+    const animeRef = doc(this.firebase, 'animes', id);
+    return new Observable<Anime>(observer => {
+      getDoc(animeRef).then(doc => {
+        if (doc.exists()) {
+          const anime = doc.data() as Anime;
+          observer.next(anime)
+        } else {
+          observer.error('Anime não encontrado')
+        }
+      }).catch(error => observer.error(error))
+    })
+
   }
 }

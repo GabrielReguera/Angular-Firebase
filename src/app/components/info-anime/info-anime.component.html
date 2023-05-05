@@ -1,1 +1,8 @@
-<p>info-anime works!</p>
+<div class="container" *ngIf="anime$ | async as anime">
+    <img class="background-img" [src]="anime.img" alt="">
+
+    <div class="main">
+        <img class="banner" [src]="anime.img" alt="">
+        <div class="info"></div>
+    </div>
+</div>
