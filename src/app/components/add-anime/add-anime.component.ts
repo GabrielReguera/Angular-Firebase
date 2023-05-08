@@ -16,6 +16,7 @@ export class AddAnimeComponent {
     name: ['', Validators.required],
     img: ['', Validators.required],
     temporada: [null, Validators.required],
+    sinopse: [null, Validators.required],
     eps: [null, Validators.required],
   })
 
@@ -27,7 +28,6 @@ export class AddAnimeComponent {
   addAnime() {
     if (this.form.invalid) { return }
 
-    console.log(this.form.value)
     this.animeService.addAnime(this.form.value)
     this.form.reset()
   }
