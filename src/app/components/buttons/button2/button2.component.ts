@@ -16,5 +16,4 @@ export class Button2Component {
   @Input() router?: string;
   @Input() title?: string;
 
-
 }
