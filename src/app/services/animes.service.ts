@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData, collectionGroup, getDoc } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, collectionGroup, getDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Anime } from '../model/anime';
 import { doc } from '@angular/fire/firestore';
@@ -33,6 +33,13 @@ export class AnimesService {
         }
       }).catch(error => observer.error(error))
     })
+
+  }
+
+  updateAnime(id: string, anime: Anime) {
+    const animeRef = collection(this.firebase, 'animes');
+    const document = doc(animeRef, `animes/${id}`)
+    updateDoc(document, { anime })
 
   }
 }

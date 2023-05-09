@@ -43,3 +43,13 @@
     z-index: -1;
     font-family: system-ui;
 }
+
+.buttons {
+    width: 100%;
+    padding-inline: 2rem;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    top: 0;
+    box-sizing: border-box;
+}

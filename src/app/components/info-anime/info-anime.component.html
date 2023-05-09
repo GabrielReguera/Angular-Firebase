@@ -4,6 +4,10 @@
     <div class="main">
         <img class="banner" [src]="anime.img" alt="">
         <div class="info">
+            <div class="buttons">
+                <app-button2 title="excluir" [icon]="delet"></app-button2>
+                <app-button2 title="Editar" router="/add-anime" [icon]="edit"></app-button2>
+            </div>
             <h2>{{anime.name}}</h2>
             <p>{{anime.sinopse}}</p>
         </div>
