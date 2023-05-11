@@ -9,6 +9,7 @@ import { Anime } from 'src/app/model/anime';
 import { AnimesService } from 'src/app/services/animes.service';
 import { Button2Component } from '../buttons/button2/button2.component';
 import { DialogEditComponent } from '../dialogs/dialog-edit/dialog-edit.component';
+import { Dialog1Component } from '../dialogs/dialog1/dialog1.component';
 
 
 @Component({
@@ -24,17 +25,35 @@ export class InfoAnimeComponent {
   edit = faEdit
   delet = faTrash
 
+  param: string
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private animeService: AnimesService,
     private dialog: MatDialog) {
-    const param = activatedRoute.snapshot.paramMap.get('idAnime')
-    this.anime$ = animeService.getAnime(param!)
+    this.param = activatedRoute.snapshot.paramMap.get('idAnime')!
+    this.getAnime()
   }
 
-  openDialog() {
-    this.dialog.open(DialogEditComponent, {
-      width: 'auto'
+  getAnime() {
+    this.anime$ = this.animeService.getAnime(this.param!)
+  }
+
+  openDialog(anime: Anime) {
+    anime.id = this.param
+    const editDialog = this.dialog.open(DialogEditComponent, {
+      width: 'auto',
+      data: anime
+    })
+
+    editDialog.afterClosed().subscribe(boolean => boolean ? this.getAnime() : null)
+  }
+
+  openDialogDelete() {
+    const editDialog = this.dialog.open(Dialog1Component, {
+      width: 'auto',
+      data: this.param
     })
   }
+
 }

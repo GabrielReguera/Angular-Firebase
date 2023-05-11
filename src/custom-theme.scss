@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -16,20 +15,16 @@ $myApp-primary: mat.define-palette(mat.$indigo-palette);
 $myApp-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$myApp-warn: mat.define-palette(mat.$red-palette);
+$myApp-warn: mat.define-palette(mat.$red-palette, A200, A100, A400);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$myApp-theme: mat.define-light-theme((
-  color: (
-    primary: $myApp-primary,
-    accent: $myApp-accent,
-    warn: $myApp-warn,
-  )
-));
+$myApp-theme: mat.define-light-theme((color: (primary: $myApp-primary,
+        accent: $myApp-accent,
+        warn: $myApp-warn,
+      )));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($myApp-theme);
-

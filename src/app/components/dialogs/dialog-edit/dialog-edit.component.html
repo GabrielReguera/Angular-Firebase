@@ -1,6 +1,6 @@
 <div class="header" mat-dialog-title>
     <h1>Editar Anime</h1>
-    <button mat-button mat-dialog-close="true"> <fa-icon [icon]="close"></fa-icon></button>
+    <button type="button" [matDialogClose]> <fa-icon [icon]="close"></fa-icon></button>
 </div>
 <mat-dialog-content [formGroup]="form">
     <div class="container">
@@ -17,12 +17,12 @@
             <input formControlName="temporada" type="number">
         </div>
         <div class="input">
-            <label>Sinopse</label>
-            <textarea formControlName="sinopse" type="text"></textarea>
-        </div>
-        <div class="input">
             <label>Qtd. Episódios</label>
             <input formControlName="eps" type="number">
+        </div>
+        <div class="input">
+            <label>Sinopse</label>
+            <textarea formControlName="sinopse" type="text"></textarea>
         </div>
     </div>
 </mat-dialog-content>

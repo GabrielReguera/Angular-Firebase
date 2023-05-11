@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData, collectionGroup, getDoc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Anime } from '../model/anime';
-import { doc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +37,19 @@ export class AnimesService {
 
   updateAnime(id: string, anime: Anime) {
     const animeRef = collection(this.firebase, 'animes');
-    const document = doc(animeRef, `animes/${id}`)
-    updateDoc(document, { anime })
-
+    const document = doc(animeRef, id)
+    return updateDoc(document, {
+      'name': anime.name,
+      'eps': anime.eps,
+      'temporada': anime.temporada,
+      'img': anime.img,
+      'sinopse': anime.sinopse
+    })
   }
+
+  deleteAnime(id: string) {
+    const animeDocRef = doc(this.firebase, `animes/${id}`);
+    return deleteDoc(animeDocRef)
+  }
+
 }

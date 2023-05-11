@@ -1,8 +1,7 @@
-<h1 mat-dialog-title>Hi</h1>
-<div mat-dialog-content>
-    <p>What's your favorite animal?</p>
-</div>
+<mat-dialog-content>
+    <h2>Você realmente quer deletar o anime?</h2>
+</mat-dialog-content>
 <div mat-dialog-actions>
-    <button mat-button mat-dialog-close="true">No Thanks</button>
-    <button mat-button cdkFocusInitial>Ok</button>
+    <button class="btn-common" mat-raiset-button cdkFocusInitial mat-dialog-close="true">Cancel</button>
+    <button class="delete" (click)="deleteAnime()" mat-button mat-dialog-close="true">Deletar</button>
 </div>
